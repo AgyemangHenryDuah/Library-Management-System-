@@ -1,0 +1,26 @@
+<!-- In views/librarian/books.ejs -->
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Publication Date</th>
+            <th>Copies Owned</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% books.forEach(function(book) { %>
+            <tr>
+                <td><%= book.title %></td>
+                <td><%= book.category_name %></td> <!-- Display the category name -->
+                <td><%= book.publication_date.toISOString().slice(0, 10) %></td>
+                <td><%= book.copies_owned %></td>
+                <td>
+                    <a href="/edit/<%= book.id %>">Edit</a>
+                    <a href="/delete/<%= book.id %>">Delete</a>
+                </td>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>
