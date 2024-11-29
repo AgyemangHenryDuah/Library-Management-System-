@@ -1,0 +1,38 @@
+<form action="/add" method="POST">
+  <div>
+    <label for="title">Book Title:</label>
+    <input type="text" name="title" id="title" required />
+  </div>
+
+  <div>
+    <label for="category">Category:</label>
+    <select name="category_id" id="category" required>
+      <option value="">---</option>
+      <% categories.forEach((category) => { %>
+        <option value="<%= category.id %>"><%= category.category_name %></option>
+      <% }) %>
+    </select>
+  </div>
+
+  <div>
+    <label for="author">Author:</label>
+    <select name="author_id" id="author" required>
+      <option value="">---</option>
+      <% authors.forEach((author) => { %>
+        <option value="<%= author.id %>"><%= author.first_name + ' '+ author.last_name %></option>
+      <% }) %>
+    </select>
+  </div>
+
+  <div>
+    <label for="publication_date">Publication Date:</label>
+    <input type="date" name="publication_date" id="publication_date" required />
+  </div>
+
+  <div>
+    <label for="copies_owned">Copies Owned:</label>
+    <input type="number" name="copies_owned" id="copies_owned" required />
+  </div>
+
+  <button type="submit">Add Book</button>
+</form>
